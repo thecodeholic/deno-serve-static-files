@@ -1,6 +1,6 @@
-import {Context, send} from 'https://deno.land/x/oak@v5.3.1/mod.ts'
+import {Context, send, Middleware} from 'https://deno.land/x/oak/mod.ts'
 
-export const staticFileMiddleware = async (ctx: Context, next: Function) => {
+export const staticFileMiddleware: Middleware = async (ctx, next) => {
   const path = `${Deno.cwd()}/public${ctx.request.url.pathname}`;
   
   if (await fileExists(path)) {
@@ -11,7 +11,6 @@ export const staticFileMiddleware = async (ctx: Context, next: Function) => {
     await next();
   }
 }
-
 
 async function fileExists(path: string) {
   try {
