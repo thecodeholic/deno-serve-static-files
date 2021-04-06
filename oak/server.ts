@@ -1,4 +1,4 @@
-import {Application, Router} from 'https://deno.land/x/oak@v5.3.1/mod.ts'
+import {Application, Router} from 'https://deno.land/x/oak/mod.ts'
 import { staticFileMiddleware } from './staticFileMiddleware.ts';
 
 const app = new Application();
